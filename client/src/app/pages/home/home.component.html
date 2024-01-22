@@ -1,0 +1,54 @@
+<div class="flex flex-col mt-3 items-center">
+  <label for="githubUsername"
+    >Enter GitHub Username:
+    <input
+      class="border p-2 mb-2 rounded"
+      id="githubUsername"
+      [(ngModel)]="githubUsername"
+  /></label>
+  <button
+    class="bg-indigo-500 rounded-md p-1 mt-2 text-white"
+    (click)="fetchData()"
+  >
+    Fetch Data
+  </button>
+</div>
+<h2 class="flex mt-2 justify-center">
+  <strong>Github Profile Information:</strong>
+</h2>
+<div class="">
+  <div class="flex items-center justify-center p-2">
+    <h3 class="p-1 m-1">Profile - {{ userData.login }}</h3>
+    <h3 class="p-1 m-1">Followers - {{ userData.followers }}</h3>
+    <h3 class="p-1 m-1">Following - {{ userData.following }}</h3>
+  </div>
+  <div *ngIf="repoData.length > 0">
+    <h2 class="flex items-center justify-center">
+      <strong> Repositories:</strong>
+    </h2>
+    <ul class="w-auto">
+      <li
+        class="flex items-center justify-center"
+        *ngFor="let repo of repoData"
+      >
+        {{ repo.name }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- home.component.html -->
+<!-- <div>
+  <label for="username">Enter GitHub Username:</label>
+  <input id="username" [(ngModel)]="username" />
+  <button (click)="search()">Search</button>
+</div>
+
+<div *ngIf="user">
+  <h2>{{ user.name }}</h2>
+  <p>{{ user.bio }}</p>
+  <h3>Repositories:</h3>
+  <ul>
+    <li *ngFor="let repo of repositories">{{ repo.name }}</li>
+  </ul>
+</div> -->

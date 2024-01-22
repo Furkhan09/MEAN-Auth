@@ -1,0 +1,35 @@
+<nav class="w-full flex justify-between items-center bg-indigo-500 shadow-2xl">
+  <div class="logo">
+    <span class="text-gray-200 text-4xl flex justify-start items-center"
+      >Github Interactive API</span
+    >
+  </div>
+
+  <div class="nav-items">
+    <ng-container *ngIf="!isLoggedIn">
+      <span
+        routerLink="/register"
+        class="text-l cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-200"
+        >Register</span
+      >
+      <span
+        routerLink="/login"
+        class="text-l cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-200"
+        >Login</span
+      >
+    </ng-container>
+
+    <ng-container *ngIf="isLoggedIn">
+      <span
+        class="text-l cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-200"
+        >Welcome User</span
+      >
+      <span
+        routerLink="/login"
+        (click)="logout()"
+        class="text-l cursor-pointer text-gray-200 font-bold m-3 hover:underline hover:text-indigo-200"
+        >Logout</span
+      >
+    </ng-container>
+  </div>
+</nav>
